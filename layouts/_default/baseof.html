@@ -74,8 +74,5 @@
   <script src="{{ . | relURL }}"></script>
   {{- end}}
 
-    {{ if not hugo.IsServer }}
-      {{ template "_internal/google_analytics.html" . }}
-    {{ end }}
 </body>
 </html>
