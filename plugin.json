@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "title": "Soho theme",
-  "description": "Design loosely based on the Jekyll theme, with custom theme color.",
+  "description": "A minimalist two-column theme based on Hyde, with custom theme color.",
   "fields": [
     {
       "field": "params.soho_theme_color",
