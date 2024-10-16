@@ -5,21 +5,25 @@
 
     {{ range $paginator.Pages }}
       <article class="post">
-        <h1 class="post-title">
-          <a href="{{ .Permalink }}">{{ .Title }}</a>
-        </h1>
+        {{ if .Title }}
+          <h1 class="post-title">
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+          </h1>
+        {{ end }}
 
         <div class="post-date">
-          <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z0700" }}">{{ .Date.Format "Jan 2, 2006" }}</time> &middot; {{ .ReadingTime }} min read
+          <a href="{{ .Permalink }}"><time datetime="{{ .Date.Format "2006-01-02T15:04:05Z0700" }}">{{ .Date.Format "Jan 2, 2006" }}</time></a> &middot; {{ .ReadingTime }} min read
         </div>
 
         <div>
           {{ .Summary }}
         </div>
 
-        <div class="read-more-link">
-          <a href="{{ .Permalink }}">Read More</a>
-        </div>
+        {{ if .Title }}
+          <div class="read-more-link">
+            <a href="{{ .Permalink }}">Read More</a>
+          </div>
+        {{ end }}
       </article>
     {{- end }}
   </div>
