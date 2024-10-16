@@ -1,10 +1,16 @@
 {{ define "main" -}}
 <ul class="posts">
-  <h1>{{ .Title }}</h1>
+  {{ if .Title }}
+    <h1>{{ .Title }}</h1>
+  {{ end }}
   {{ range .Data.Pages -}}
   <li>
     <div class="flex">
-      <a href="{{ .Permalink }}" class="truncate">{{ .Title }}</a>
+      {{ if .Title }}
+        <a href="{{ .Permalink }}" class="truncate">{{ .Title }}</a>
+      {{ else }}
+        <a href="{{ .Permalink }}" class="truncate">{{ .Summary | truncate 50 }}</a>
+      {{ end }}
       {{ if eq .Kind "page" }}
       <time class="nowrap" datetime="{{ .Date.Format "2006-01-02T15:04:05Z0700" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
       {{ end }}
