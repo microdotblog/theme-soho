@@ -12,7 +12,10 @@
         {{ end }}
 
         <div class="post-date">
-          <a href="{{ .Permalink }}"><time datetime="{{ .Date.Format "2006-01-02T15:04:05Z0700" }}">{{ .Date.Format "Jan 2, 2006" }}</time></a> &middot; {{ .ReadingTime }} min read
+          <a href="{{ .Permalink }}"><time datetime="{{ .Date.Format "2006-01-02T15:04:05Z0700" }}">{{ .Date.Format "Jan 2, 2006" }}</time></a> 
+          {{ if gt .ReadingTime 2 }}
+            &middot; {{ .ReadingTime }} min read
+          {{ end }}
         </div>
 
         <div>
