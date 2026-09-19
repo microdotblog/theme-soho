@@ -1,7 +1,7 @@
 <aside class="sidebar">
   <div class="container">
     <div class="sidebar-about">
-      {{ with .Site.Author.avatar }}
+      {{ with .Site.Params.author.avatar }}
         <div class="author-image">
           <a href="{{ $.Site.BaseURL }}">
             <img src="{{ . | relURL }}" class="img-circle img-headshot center" alt="Profile Picture">
